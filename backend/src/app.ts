@@ -4,9 +4,10 @@ import { errorMiddleware } from './middlewares/error.js'
 import NodeCache from 'node-cache'
 
 // importing routes
-import userRouter from './routes/user.routes.js'
-import productRouter from './routes/product.routes.js'
-import orderRouter from './routes/orders.routes.js'
+import userRoute from './routes/user.routes.js'
+import productRoute from './routes/product.routes.js'
+import orderRoute from './routes/orders.routes.js'
+import paymentRoute from './routes/payment.routes.js'
 import { config } from 'dotenv'
 import morgan from 'morgan'
 
@@ -24,9 +25,10 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 // using routes
-app.use("/api/v1/user", userRouter)
-app.use("/api/v1/product", productRouter)
-app.use("/api/v1/order", orderRouter)
+app.use("/api/v1/user", userRoute)
+app.use("/api/v1/product", productRoute)
+app.use("/api/v1/order", orderRoute)
+app.use("/api/v1/payment", paymentRoute)
 
 
 app.use('/uploads', express.static('uploads'));
