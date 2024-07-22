@@ -11,15 +11,18 @@ import paymentRoute from './routes/payment.routes.js'
 import dashboardRoute from './routes/stats.routes.js'
 import { config } from 'dotenv'
 import morgan from 'morgan'
+import Stripe from 'stripe'
 
 config({
     path: "./.env"
 })
 const PORT = process.env.PORT || 3000;
 const mongo_uri = process.env.MONGO_URI || ''
+const stripeKey = process.env.STRIPE_KEY || ''
 connectDB(mongo_uri)
 
-export const myCache = new NodeCache()
+export const myCache = new NodeCache();
+export const stripe = new Stripe(stripeKey)
 
 const app = express()
 app.use(express.json())
