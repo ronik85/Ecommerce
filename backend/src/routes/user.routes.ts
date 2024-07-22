@@ -9,6 +9,8 @@ app.get('/all', adminOnly, getAllUser)
 
 // app.get('/:id', getUser)
 // app.delete('/:id', deleteUser)
-app.route('/:id').get(getUser).delete(adminOnly, deleteUser)
+app.route('/:id')
+    .get(getUser)
+    .delete(adminOnly, deleteUser)
 
 export default app;
