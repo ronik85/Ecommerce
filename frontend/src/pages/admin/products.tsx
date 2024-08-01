@@ -57,13 +57,13 @@ const Products = () => {
 
   useEffect(() => {
     if (data) setRows(data?.products.map((i) => ({
-      photo: <img src={`${server}/${i._id}`}></img>,
+      photo: <img src={`${server}/${i.photo}`}></img>,
       name: i.name,
       price: i.price,
       stock: i.stock,
-      action: <Link to={`/admin/products/${i._id}`}>Manage</Link>,
+      action: <Link to={`/admin/product/${i._id}`}>Manage</Link>,
     })))
-  }, [])
+  }, [data])
 
 
 

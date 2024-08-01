@@ -43,7 +43,7 @@ export const getAdminProducts = TryCatch(async (req, res, next) => {
         products = await Product.find({})
         myCache.set("all-product", JSON.stringify(products))
     }
-    return res.status(201).json({
+    return res.status(200).json({
         success: true,
         products
     })
@@ -98,7 +98,6 @@ export const updateProduct = TryCatch(async (req, res, next) => {
     const { id } = req.params
     const { name, price, stock, category } = req.body;
     const photo = req.file;
-    console.log(photo, "sdsd")
     const product = await Product.findById(id)
 
     if (!product) return next(new ErrorHandler("Product Not Found", 404))

@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 const Home = lazy(() => import("./pages/Home"))
 const Cart = lazy(() => import("./pages/Cart"))
 const Search = lazy(() => import("./pages/Search"))
+// const ProductDetails = lazy(() => import("./pages/product-details"))
 const Shipping = lazy(() => import("./pages/Shipping"))
 const Login = lazy(() => import("./pages/Login"))
 const Orders = lazy(() => import("./pages/Orders"))

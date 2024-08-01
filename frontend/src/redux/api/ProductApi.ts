@@ -12,7 +12,7 @@ import {
     ProductResponse,
     SearchProductsRequest,
     SearchProductsResponse,
-    UpdateProductRequest, 
+    UpdateProductRequest,
 } from "../../types/api-types";
 
 export const productAPI = createApi({
@@ -34,19 +34,12 @@ export const productAPI = createApi({
             query: () => `categories`,
             providesTags: ["product"],
         }),
-
-        searchProducts: builder.query<
-            SearchProductsResponse,
-            SearchProductsRequest
-        >
-        ({
+        searchProducts: builder.query<SearchProductsResponse, SearchProductsRequest>({
             query: ({ price, search, sort, category, page }) => {
                 let base = `all?search=${search}&page=${page}`;
-
                 if (price) base += `&price=${price}`;
                 if (sort) base += `&sort=${sort}`;
                 if (category) base += `&category=${category}`;
-
                 return base;
             },
             providesTags: ["product"],
@@ -84,7 +77,7 @@ export const productAPI = createApi({
 
         newProduct: builder.mutation<MessageResponse, NewProductRequest>({
             query: ({ formData, id }) => ({
-                url: `new?id=${id}`,
+                url: `create?id=${id}`,
                 method: "POST",
                 body: formData,
             }),
